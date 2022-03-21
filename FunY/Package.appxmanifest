@@ -8,14 +8,14 @@
 
   <Identity
     Name="4dd79631-403a-4be9-92cf-d34697b78a09"
-    Publisher="CN=محمد"
+    Publisher="CN=loremipsum"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="4dd79631-403a-4be9-92cf-d34697b78a09" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>FunY</DisplayName>
-    <PublisherDisplayName>محمد</PublisherDisplayName>
+    <PublisherDisplayName>loremipsum</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
