@@ -24,7 +24,7 @@
                 Margin="20,0,290,0">
             <StackPanel Orientation="Horizontal">
                 <TextBlock x:Name="AppTitle"
-                           Text="FunY"
+                           Text="Functs"
                            VerticalAlignment="Center"
                            Style="{StaticResource CaptionTextBlockStyle}" />
             </StackPanel>
