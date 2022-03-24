@@ -22,7 +22,7 @@
                 VerticalAlignment="Center"
                 Background="Transparent"
                 Canvas.ZIndex="1" 
-                Margin="60,2,0,0">
+                Margin="52,3,0,0">
             <StackPanel Orientation="Horizontal">
                 <TextBlock x:Name="AppTitle"
                            Text="Functs - Settings"
@@ -56,7 +56,7 @@
         <StackPanel Padding="10" Spacing="10" Grid.Row="1" Orientation="Vertical">
             <uc:SettingsBlockControl Title="Source">
                 <ComboBox SelectedIndex="{x:Bind SViewModel.Source, Mode=TwoWay}">
-                    <x:String>Local</x:String>
+                    <x:String>Local (not working)</x:String>
                     <x:String>Free Quotes API</x:String>
                     <x:String>JokeAPI</x:String>
                 </ComboBox>
