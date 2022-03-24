@@ -7,19 +7,62 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:uc="using:FunY.UserControls"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls" xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
     d:Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel Orientation="Vertical">
-        <uc:SettingsBlockControl Title="Source">
-            <ComboBox SelectedIndex="{x:Bind SViewModel.Source, Mode=TwoWay}">
-                <x:String>Local</x:String>
-                <x:String>Free Quotes API</x:String>
-                <x:String>JokeAPI</x:String>
-            </ComboBox>
-        </uc:SettingsBlockControl>
-        
-        <TextBlock Text="All the APIs used here are © of their respective owners and contributors." />
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Border x:Name="AppTitleBar"
+                IsHitTestVisible="True"
+                VerticalAlignment="Center"
+                Background="Transparent"
+                Canvas.ZIndex="1" 
+                Margin="60,2,0,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="AppTitle"
+                           Text="FunY - Settings"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource CaptionTextBlockStyle}" />
+            </StackPanel>
+        </Border>
+
+        <Button VerticalAlignment="Top" x:Name="BackButton"
+                CornerRadius="5"
+                Height="28"
+                Margin="4,4,0,0"
+                Canvas.ZIndex="2"
+                Click="BackButton_Click"
+                Style="{StaticResource TransparentButton}"
+                Width="40"
+                AutomationProperties.Name="Back"
+                AutomationProperties.AutomationId="BackButton"
+                AutomationProperties.ItemType="Navigation Button">
+            <muxc:AnimatedIcon x:Name="BackAnimatedIcon" Height="16" Width="16">
+                <muxc:AnimatedIcon.Source>
+                    <animatedvisuals:AnimatedBackVisualSource/>
+                </muxc:AnimatedIcon.Source>
+                <muxc:AnimatedIcon.FallbackIconSource>
+                    <muxc:SymbolIconSource Symbol="Back"/>
+                </muxc:AnimatedIcon.FallbackIconSource>
+            </muxc:AnimatedIcon>
+        </Button>
+
+        <StackPanel Padding="10" Spacing="10" Grid.Row="1" Orientation="Vertical">
+            <uc:SettingsBlockControl Title="Source">
+                <ComboBox SelectedIndex="{x:Bind SViewModel.Source, Mode=TwoWay}">
+                    <x:String>Local</x:String>
+                    <x:String>Free Quotes API</x:String>
+                    <x:String>JokeAPI</x:String>
+                </ComboBox>
+            </uc:SettingsBlockControl>
+
+            <TextBlock Text="All the APIs used here are © of their respective owners and contributors." />
+        </StackPanel>
+
+    </Grid>
 </Page>
