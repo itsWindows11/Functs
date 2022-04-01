@@ -107,12 +107,14 @@ namespace FunY
                         {
                             Fact fact = JsonConvert.DeserializeObject<Fact>(await response.Content.ReadAsStringAsync());
 
+                            JokeFactText.Text = "Fact:";
                             CurrentFactText.Text = string.IsNullOrWhiteSpace(fact.Author) ? fact.FactDesc : $"{fact.FactDesc}\n\nAuthor: {fact.Author}";
                         }
                         else if (App.SViewModel.Source == 2)
                         {
                             JokeAPIFact joke = JsonConvert.DeserializeObject<JokeAPIFact>(await response.Content.ReadAsStringAsync());
 
+                            JokeFactText.Text = "Joke:";
                             CurrentFactText.Text = string.IsNullOrWhiteSpace(joke.Joke) ? $"{joke.JokeStart} {joke.JokeAns}" : joke.Joke;
                         }
                     }
@@ -122,7 +124,10 @@ namespace FunY
 
                     List<LocalModel> models = JsonConvert.DeserializeObject<List<LocalModel>>(await FileIO.ReadTextAsync(file));
 
-                    CurrentFactText.Text = models[new Random().Next(0, models.Count)].Title;
+                    LocalModel model = models[new Random().Next(0, models.Count)];
+
+                    JokeFactText.Text = model.IsFact ? "Fact:" : "Joke:";
+                    CurrentFactText.Text = model.Title;
                 }
             } catch
             {
