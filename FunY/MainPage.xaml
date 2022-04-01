@@ -37,9 +37,10 @@
         <Grid Grid.Row="1" Background="{StaticResource LayerFillColorDefaultBrush}">
             <StackPanel MinWidth="350" MaxWidth="350" Spacing="5" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <RelativePanel>
-                    <TextBlock Text="Joke:"
+                    <TextBlock Text="Fact:"
                                Style="{StaticResource TitleTextBlockStyle}" 
-                               Margin="0,-8,0,0"/>
+                               Margin="0,-8,0,0"
+                               x:Name="JokeFactText"/>
                     <Button Content="Fetch random joke" Click="FetchRandomButton_Click" RelativePanel.AlignRightWithPanel="True" />
                 </RelativePanel>
                 <TextBlock x:Name="CurrentFactText" TextWrapping="Wrap" Text="Newton invented the gravity." />

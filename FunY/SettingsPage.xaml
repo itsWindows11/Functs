@@ -63,6 +63,10 @@
             </uc:SettingsBlockControl>
 
             <TextBlock Text="All the APIs used here are © of their respective owners and contributors." />
+
+            <TextBlock Text="About" FontWeight="SemiBold" Margin="0,8,0,0" />
+            <TextBlock Text="Functs, version 1.0.0.0" />
+            <HyperlinkButton NavigateUri="https://github.com/itsWindows11/Functs">Contribute</HyperlinkButton>
         </StackPanel>
 
     </Grid>

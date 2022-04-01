@@ -10,7 +10,18 @@ namespace FunY.Models
         [JsonProperty("author")]
         public string Author { get; set; }
 
-        public bool IsFact = true;
+        public bool IsFact => true;
+    }
+
+    public class LocalModel
+    {
+        [JsonProperty("type")]
+        public string Type { get; set; }
+
+        [JsonProperty("title")]
+        public string Title { get; set; }
+
+        public bool IsFact => Type.Equals("fact");
     }
 
     public class JokeAPIFact
@@ -24,6 +35,6 @@ namespace FunY.Models
         [JsonProperty("joke")]
         public string Joke { get; set; }
 
-        public bool IsFact = false;
+        public bool IsFact => false;
     }
 }

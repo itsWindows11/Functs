@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -115,6 +116,13 @@ namespace FunY
                             CurrentFactText.Text = string.IsNullOrWhiteSpace(joke.Joke) ? $"{joke.JokeStart} {joke.JokeAns}" : joke.Joke;
                         }
                     }
+                } else
+                {
+                    StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(new("ms-appx:///Assets/localFacts.json"));
+
+                    List<LocalModel> models = JsonConvert.DeserializeObject<List<LocalModel>>(await FileIO.ReadTextAsync(file));
+
+                    CurrentFactText.Text = models[new Random().Next(0, models.Count)].Title;
                 }
             } catch
             {
